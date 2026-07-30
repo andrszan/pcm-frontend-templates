@@ -1,0 +1,135 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.next",
+      "!dist",
+      "!build",
+      "!.github",
+      "!.husky",
+      "!out",
+      "!src/components/ui"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 120,
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "expand": "auto",
+    "useEditorconfig": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUndeclaredVariables": "error",
+        "noNestedComponentDefinitions": "error",
+        "noUndeclaredDependencies": "error"
+      },
+      "nursery": {
+        "useSortedClasses": "on",
+        "noFloatingPromises": "error",
+        "noMisusedPromises": "error",
+        "noImportCycles": "error",
+        "noUnnecessaryConditions": "warn"
+      },
+      "performance": {
+        "noImgElement": "warn"
+      },
+      "style": {
+        "noCommonJs": "error",
+        "noHeadElement": "warn",
+        "noNamespace": "error",
+        "useAsConstAssertion": "error",
+        "useSelfClosingElements": "error",
+        "noNestedTernary": "warn",
+        "noParameterAssign": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error",
+        "useFilenamingConvention": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn",
+        "noConstantBinaryExpressions": "error",
+        "noEmptyBlockStatements": "error",
+        "noUnknownAtRules": "off"
+      },
+      "complexity": {
+        "noImportantStyles": "off"
+      }
+    },
+    "domains": {
+      "next": "recommended",
+      "react": "recommended"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              "react",
+              "react/**",
+              ":BLANK_LINE:",
+              "next/**",
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":BLANK_LINE:",
+              ":PATH:"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "double",
+      "attributePosition": "auto",
+      "bracketSpacing": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "indentScriptAndStyle": false,
+      "selfCloseVoidElements": "always"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.d.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noNamespace": "off"
+          }
+        }
+      }
+    }
+  ]
+}
