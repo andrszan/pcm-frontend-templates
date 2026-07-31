@@ -4,7 +4,7 @@
 
 ## 要求
 
-- Node.js `>= 22.22.2`
+- Node.js `^22.22.2 || ^24.15.0 || >=26.0.0`（以 [package.json](package.json) 为准）
 - pnpm `11.17.0`（由 [package.json](package.json) 固定）
 
 启用 Corepack：

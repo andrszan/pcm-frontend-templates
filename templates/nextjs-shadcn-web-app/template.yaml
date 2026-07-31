@@ -1,0 +1,17 @@
+id: nextjs-shadcn-web-app
+name: Next.js + shadcn/ui 前端模板
+description: 面向独立 Web 应用起步的业务无关 Next.js App Router 模板。
+tags:
+  - web
+  - nextjs
+  - react
+  - typescript
+  - shadcn-ui
+  - tailwind-css
+commands:
+  install: pnpm install
+  dev: pnpm dev
+  check: pnpm type-check && pnpm lint
+  test: pnpm test:run
+  build: pnpm build
+  e2e: pnpm test:e2e
