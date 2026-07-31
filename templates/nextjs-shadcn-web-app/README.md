@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + shadcn/ui 前端模板
 
-## Getting Started
+适合独立项目起步的 Next.js App Router 模板，包含 TypeScript、Tailwind CSS、shadcn/ui、TanStack Query、Axios、Vitest 和 Playwright。
 
-First, run the development server:
+## 要求
+
+- Node.js `>= 22.22.2`
+- pnpm `11.17.0`（由 [package.json](package.json) 固定）
+
+启用 Corepack：
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+corepack enable
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 快速开始
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+cp .env.example .env.local
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+打开 <http://localhost:3000>，从 [src/app/page.tsx](src/app/page.tsx) 开始构建应用。
 
-## Learn More
+`.env.local` 仅用于本地配置，不能提交。`NEXT_PUBLIC_` 开头的变量会被打包到浏览器，不能存放密钥。
 
-To learn more about Next.js, take a look at the following resources:
+## 本地验证
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm type-check
+pnpm lint
+pnpm test:run
+pnpm build
+pnpm exec playwright install chromium
+pnpm test:e2e
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`test:e2e` 只在本地 Chromium 中验证首页可访问、metadata 正确且主标题可见。
 
-## Deploy on Vercel
+## 部署
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+默认 Node Server 部署方式：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm build
+pnpm start
+```
+
+Docker 或 Next.js Standalone 输出不是模板默认配置；确认实际部署需求后再添加。
+
+## 文档
+
+- [当前使用指南](docs/项目使用前置环境准备.md)：环境、依赖、组件更新与本地验证。
+- [历史搭建教程](docs/项目架构搭建说明文档.md)：模板形成过程，仅供学习和追溯，不能替代本 README 的初始化步骤。
+- [API 层设计](src/api/README.md)：HTTP 基础设施与业务模块扩展边界。

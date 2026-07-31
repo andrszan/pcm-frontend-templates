@@ -1,18 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
 import Home from "@/app/page";
 
 describe("Home page", () => {
-  it("renders the primary button and responds to click", async () => {
-    const user = userEvent.setup();
+  it("renders the template status", () => {
     render(<Home />);
 
-    const button = screen.getByRole("button", { name: /click me/i });
-    expect(button).toBeInTheDocument();
-
-    await user.click(button);
-    expect(button).toBeEnabled();
+    expect(screen.getByRole("heading", { level: 1, name: "模板已启动" })).toBeInTheDocument();
+    expect(screen.getByText("从 src/app/page.tsx 开始构建你的应用。")).toBeInTheDocument();
   });
 });

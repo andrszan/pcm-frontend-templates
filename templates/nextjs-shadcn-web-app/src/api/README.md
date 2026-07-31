@@ -15,7 +15,6 @@
 - 项目组装入口：`client.ts` 集中配置基础地址、超时和项目协议策略。
 - 默认客户端：读取 `NEXT_PUBLIC_API_URL`，默认超时 30 秒。
 - 模块组织规范：endpoint 与该业务域的请求/响应 DTO 共置。
-- 最小示例：`modules/health/` 展示查询参数、响应类型和 endpoint 写法。
 - 基础回归测试：验证数据返回、拦截器卸载和 Axios 原始错误保留。
 
 ### 故意不做，由具体项目决定
@@ -46,11 +45,7 @@ src/api/
 │   ├── interceptors.ts
 │   ├── types.ts
 │   └── index.ts
-└── modules/
-    └── health/
-        ├── api.ts
-        ├── types.ts
-        └── index.ts
+└── modules/          # 真实业务出现后按域创建
 ```
 
 ### `client.ts`
