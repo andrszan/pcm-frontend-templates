@@ -18,8 +18,9 @@
 ## 架构边界
 
 - 保持模板业务中立。未经任务确认，不加入客户业务域、业务协议、领域示例数据，或为未来预建目录与抽象。
-- 项目采用 Next.js App Router。路由入口负责路由级数据获取、metadata 和页面组合；路由私有实现就近放置，确认跨路由复用后再提升为共享代码。
-- 默认使用 Server Component；仅把事件处理、浏览器 API 或客户端 Hook 所需部分移入最小的客户端边界。
+- 项目采用 Next.js App Router。根页面入口为 `src/app/page.tsx`，嵌套路由入口为 `src/app/<route>/page.tsx`；入口负责路由级数据获取、metadata 和页面组合。
+- 页面默认保持 Server Component。只有事件处理、浏览器 API 或客户端 Hook 所需部分才进入最小客户端边界。
+- 页面私有组件仅在页面确实需要拆分时创建，并就近放在同路由的 `_components/`；不要预建空目录。确认跨路由复用后，再提升到 `src/components/` 等共享位置。
 - 只为已确认的应用级行为增加全局 Provider。已安装依赖不代表认证、国际化、全局状态、表单方案或 TanStack Query hooks 已接入。
 - API 的目录职责、DTO、endpoint、协议适配、认证和错误策略只遵循 `src/api/AGENTS.md` 与 `src/api/README.md`；不要在根规则外猜测或补写这些约定。
 - 优先复用现有代码、平台能力和已安装依赖。没有真实复用或变化点时，不增加共享层、包装层、新依赖或预留接口。
