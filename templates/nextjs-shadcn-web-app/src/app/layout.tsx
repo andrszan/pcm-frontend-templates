@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import type { Metadata } from "next";
 
+import { ThemeSelect } from "@/components/theme-select";
+
 import "./globals.css";
 
 import { Providers } from "./providers";
@@ -33,7 +35,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <Providers>{children}</Providers>
+        <Providers>
+          <header className="flex items-center justify-end border-b px-6 py-3">
+            <ThemeSelect />
+          </header>
+          {children}
+        </Providers>
       </body>
     </html>
   );
