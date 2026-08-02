@@ -1,0 +1,18 @@
+id: vite-react-shadcn-spa
+name: Vite + React + shadcn/ui 单页应用模板
+description: 面向不需要服务端渲染的 Web 应用起步的业务无关 Vite React SPA 模板。
+tags:
+  - web
+  - spa
+  - vite
+  - react
+  - typescript
+  - shadcn-ui
+  - tailwind-css
+commands:
+  install: pnpm install
+  dev: pnpm dev
+  check: pnpm type-check && pnpm lint
+  test: pnpm test:run
+  build: pnpm build
+  e2e: pnpm test:e2e
