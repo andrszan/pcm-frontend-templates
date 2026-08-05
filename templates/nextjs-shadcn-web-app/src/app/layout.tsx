@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Next.js Web App",
-  description: "基于 Next.js 和 shadcn/ui 的前端模板。",
+  description: "基于 Next.js 和 shadcn/ui 的前端项目起点。",
 };
 
 export default function RootLayout({

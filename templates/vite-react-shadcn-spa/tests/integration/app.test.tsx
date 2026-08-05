@@ -33,7 +33,7 @@ function ProviderProbe() {
 describe("应用集成", () => {
   it("使用生产路由渲染首页", () => {
     renderRoute("/")
-    expect(screen.getByRole("heading", { level: 1, name: "模板已启动" })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 1, name: "项目已启动" })).toBeInTheDocument()
   })
 
   it("提供 Query 默认策略和主题上下文", () => {

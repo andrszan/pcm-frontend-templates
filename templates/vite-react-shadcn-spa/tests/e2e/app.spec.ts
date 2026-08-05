@@ -6,7 +6,7 @@ test("开发服务器可访问并持久化主题", async ({ page }) => {
 
   expect(response?.status()).toBe(200)
   await expect(page).toHaveTitle("Vite React SPA")
-  await expect(page.getByRole("heading", { level: 1, name: "模板已启动" })).toBeVisible()
+  await expect(page.getByRole("heading", { level: 1, name: "项目已启动" })).toBeVisible()
 
   await page.getByRole("combobox", { name: "主题" }).selectOption("dark")
   await expect(page.locator("html")).toHaveClass(/dark/)

@@ -1,6 +1,6 @@
 id: vite-react-shadcn-spa
-name: Vite + React + shadcn/ui 单页应用模板
-description: 面向不需要服务端渲染的 Web 应用起步的业务无关 Vite React SPA 模板。
+name: Vite + React + shadcn/ui 单页应用项目起点
+description: 面向不需要服务端渲染的 Web 应用起步的业务无关 Vite React SPA 项目起点。
 tags:
   - web
   - spa

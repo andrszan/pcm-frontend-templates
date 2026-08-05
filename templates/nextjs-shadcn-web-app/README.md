@@ -1,6 +1,6 @@
-# Next.js + shadcn/ui 前端模板
+# Next.js + shadcn/ui 前端项目
 
-适合独立项目起步的 Next.js App Router 模板，包含 TypeScript、Tailwind CSS、shadcn/ui、TanStack Query、Axios、Vitest 和 Playwright。
+适合独立项目起步的 Next.js App Router 项目起点，包含 TypeScript、Tailwind CSS、shadcn/ui、TanStack Query、Axios、Vitest 和 Playwright。
 
 ## 要求
 
@@ -47,10 +47,10 @@ pnpm build
 pnpm start
 ```
 
-Docker 或 Next.js Standalone 输出不是模板默认配置；确认实际部署需求后再添加。
+Docker 或 Next.js Standalone 输出不是当前项目默认配置；确认实际部署需求后再添加。
 
 ## 文档
 
 - [当前使用指南](docs/项目使用前置环境准备.md)：环境、依赖、组件更新与本地验证。
-- [历史搭建教程](docs/项目架构搭建说明文档.md)：模板形成过程，仅供学习和追溯，不能替代本 README 的初始化步骤。
+- [历史搭建教程](docs/项目架构搭建说明文档.md)：项目形成过程，仅供学习和追溯，不能替代本 README 的初始化步骤。
 - [API 层设计](src/api/README.md)：HTTP 基础设施与业务模块扩展边界。

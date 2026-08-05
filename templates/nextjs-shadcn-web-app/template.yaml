@@ -1,6 +1,6 @@
 id: nextjs-shadcn-web-app
-name: Next.js + shadcn/ui 前端模板
-description: 面向独立 Web 应用起步的业务无关 Next.js App Router 模板。
+name: Next.js + shadcn/ui 前端项目起点
+description: 面向独立 Web 应用起步的业务无关 Next.js App Router 项目起点。
 tags:
   - web
   - nextjs

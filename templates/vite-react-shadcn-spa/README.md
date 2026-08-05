@@ -1,4 +1,4 @@
-# Vite + React + shadcn/ui 单页应用模板
+# Vite + React + shadcn/ui 单页应用项目
 
 面向不需要服务端渲染或搜索引擎优化的 Web 应用起步，包含 TypeScript、React Router、Tailwind CSS、shadcn/ui、TanStack Query、Axios、Vitest 和 Playwright。
 

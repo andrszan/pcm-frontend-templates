@@ -10,10 +10,10 @@
 - `ResponseAdapter` 可集中解析确认过的响应协议。
 - `ErrorNormalizer` 可集中转换 Axios pipeline 错误。
 - 项目级 `apiClient` 读取 `VITE_API_URL`，默认超时 30 秒。
-- `modules/health/` 提供最小 endpoint、DTO 和模块出口组织示例；它假定后端存在 `/health`，模板页面不会自动调用。
+- `modules/health/` 提供最小 endpoint、DTO 和模块出口组织示例；它假定后端存在 `/health`，当前项目页面不会自动调用。
 - unit tests 覆盖数据提取、请求体优先级、拦截器生命周期和错误边界。
 
-模板故意不实现 Token、Cookie、刷新流程、统一 envelope、业务成功码、401/403 跳转、Toast、重试、请求去重、OpenAPI 或运行时响应校验。
+当前项目故意不实现 Token、Cookie、刷新流程、统一 envelope、业务成功码、401/403 跳转、Toast、重试、请求去重、OpenAPI 或运行时响应校验。
 
 ## 当前结构
 
