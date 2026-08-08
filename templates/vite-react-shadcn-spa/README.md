@@ -36,7 +36,37 @@ pnpm dev
 
 `VITE_API_URL` 配置浏览器请求的后端基础地址；留空时 Axios 使用同源相对 URL。
 
-所有 `VITE_` 变量都会在构建时写入浏览器 bundle，不能存放 Token、密码或其他敏感信息。`.env.local` 只用于本地配置，不能提交。
+所有 `VITE_` 变量都会在构建时写入浏览器 bundle，不能存放 Token、密码、API Key 或其他敏感信息。`.env.local` 只用于本地配置，不能提交。
+
+### 本地联调后端（Vite proxy）
+
+模板默认**不**配置 `server.proxy`。`VITE_API_URL` 留空只表示浏览器打到当前开发站点；若本机另有后端，开发期还需在 [vite.config.ts](vite.config.ts) 按真实路径配置代理，否则请求仍由 Vite 处理，不会转到后端。
+
+推荐：保持 `VITE_API_URL` 留空，用 proxy 把同源路径转到本机后端（避免浏览器 CORS）。路径与 `target` 按实际后端填写，不要照搬未确认的约定：
+
+```ts
+export default defineConfig({
+  // ...existing config
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1:8000",
+        changeOrigin: true,
+      },
+      "/health": {
+        target: "http://127.0.0.1:8000",
+        changeOrigin: true,
+      },
+    },
+  },
+})
+```
+
+说明：
+
+- `server.proxy` 仅对 `pnpm dev` 的 Vite 开发服务器生效，不作用于生产构建或静态托管。
+- 生产环境需网关/反向代理保持同源，或将 `VITE_API_URL` 设为可访问的绝对后端地址（并处理 CORS）。
+- 也可直接把 `VITE_API_URL` 设为后端绝对地址（如 `http://127.0.0.1:8000`）；此时一般不再依赖 Vite proxy，但需后端允许跨域。
 
 ## 本地验证
 

@@ -15,7 +15,8 @@
 - 应用级 Provider 集中在 `src/app/providers.tsx`；只为已确认的全局行为增加 Provider。
 - TanStack Query 负责远程数据缓存；API 传输层不依赖 React，不把 Query Hook 放入 `src/api/`。
 - API 的 DTO、endpoint、认证和错误策略只遵循 `src/api/AGENTS.md` 与 `src/api/README.md`。
-- 所有 `VITE_` 环境变量都会进入客户端 bundle，不能保存 Token、密码或其他敏感信息。
+- 所有 `VITE_` 环境变量都会进入客户端 bundle，不能保存 Token、密码、API Key 或其他敏感信息。
+- 本地联调本机后端时：`VITE_API_URL` 留空不够；还需按真实后端路径在 `vite.config.ts` 配置 `server.proxy`（见 `README.md`「环境变量」）。未确认后端路径前不要预置代理。proxy 只覆盖开发服务器，生产同源或绝对 `VITE_API_URL` 另行处理。
 - 优先复用现有代码、平台能力和已安装依赖；没有真实复用点时不增加共享层、包装层、新依赖或空目录。
 
 ## UI 与可访问性

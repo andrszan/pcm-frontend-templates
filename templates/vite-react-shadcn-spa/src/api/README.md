@@ -67,7 +67,7 @@ useQuery({
 
 ## 项目接入顺序
 
-1. 配置 `VITE_API_URL`。留空表示浏览器同源相对请求，不代表已经存在可用后端。
+1. 配置 `VITE_API_URL`。留空表示浏览器同源相对请求，不代表已经存在可用后端。本地联调本机后端时，还须在 `vite.config.ts` 配置 `server.proxy`（见根目录 `README.md`「环境变量」）；未配置 proxy 时请求不会转到后端。
 2. 确认接口直接返回数据还是统一 envelope；没有 envelope 就保持默认 adapter。
 3. 确认认证来源和生命周期，再用请求拦截器接入。
 4. 需要统一错误类型时，在 `client.ts` 注入 `ErrorNormalizer`。
