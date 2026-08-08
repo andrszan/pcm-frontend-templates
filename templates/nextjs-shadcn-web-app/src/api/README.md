@@ -221,7 +221,7 @@ useQuery({
 
 基于当前项目启动真实业务时，人或 AI Agent 应按顺序完成：
 
-1. **确认后端基础地址**：配置 `NEXT_PUBLIC_API_URL`；服务端私有地址不要使用 `NEXT_PUBLIC_`。该变量为空时 Axios 使用相对 URL，请求会发往当前宿主；这只适用于同源 API 或本地代理，不是可用后端的默认值。
+1. **确认后端基础地址**：配置 `NEXT_PUBLIC_API_URL`；服务端私有地址不要使用 `NEXT_PUBLIC_`。该变量为空时 Axios 使用相对 URL，请求会发往当前宿主；这只适用于同源 API，不是可用后端的默认值。本地联调本机后端时，还须在 `next.config.ts` 配置 `rewrites`（见根目录 `README.md`「环境变量」）；未配置重写时请求不会转到后端。
 2. **确认返回协议**：接口是直接返回数据，还是统一 envelope。没有 envelope 就保持默认行为。
 3. **确认认证来源**：浏览器 Token、HttpOnly Cookie、服务端 Session 或每请求 Header。
 4. **配置项目协议策略**：需要统一响应体或错误类型时，在 `client.ts` 注入 `ResponseAdapter` 与 `ErrorNormalizer`；不要把响应解包塞进响应拦截器。

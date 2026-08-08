@@ -23,6 +23,8 @@
 - 页面私有组件仅在确实需要拆分时就近放在同路由的 `_components/`；确认跨路由复用后再提升到 `src/components/`。
 - 只为已确认的应用级行为增加全局 Provider；已安装依赖不代表认证、国际化、全局状态或 Query hooks 已接入。
 - API 的目录职责、DTO、endpoint、协议适配、认证和错误策略只遵循 `src/api/AGENTS.md` 与 `src/api/README.md`。
+- 所有 `NEXT_PUBLIC_` 环境变量都会进入客户端 bundle，不能保存 Token、密码、API Key 或其他敏感信息。
+- 本地联调本机后端时：`NEXT_PUBLIC_API_URL` 留空不够；还需按真实后端路径在 `next.config.ts` 配置 `rewrites`（见 `README.md`「环境变量」）。未确认后端路径前不要预置重写。默认 Node Server 部署下 `rewrites` 开发与生产均可生效；也可改用绝对 `NEXT_PUBLIC_API_URL`（需处理 CORS）或服务端私有基址。
 - 优先复用现有代码、平台能力和已安装依赖；没有真实复用点时不增加共享层、包装层、新依赖或空目录。
 
 ## UI 与可访问性

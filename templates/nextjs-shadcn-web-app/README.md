@@ -23,7 +23,44 @@ pnpm dev
 
 打开 <http://localhost:3000>，从 [src/app/page.tsx](src/app/page.tsx) 开始构建应用。
 
-`.env.local` 仅用于本地配置，不能提交。`NEXT_PUBLIC_` 开头的变量会被打包到浏览器，不能存放密钥。
+## 环境变量
+
+`NEXT_PUBLIC_API_URL` 配置浏览器请求的后端基础地址；留空时 Axios 使用同源相对 URL。
+
+所有 `NEXT_PUBLIC_` 变量都会在构建时写入浏览器 bundle，不能存放 Token、密码、API Key 或其他敏感信息。`.env.local` 只用于本地配置，不能提交。服务端私有地址不要使用 `NEXT_PUBLIC_` 前缀。
+
+### 本地联调后端（rewrites）
+
+模板默认**不**配置 `rewrites`。`NEXT_PUBLIC_API_URL` 留空只表示浏览器打到当前站点；若本机另有后端，还需在 [next.config.ts](next.config.ts) 按真实路径配置重写，否则请求仍由 Next.js 处理，不会转到后端。
+
+推荐：保持 `NEXT_PUBLIC_API_URL` 留空，用 `rewrites` 把同源路径转到本机后端（避免浏览器 CORS）。路径与 `destination` 按实际后端填写，不要照搬未确认的约定：
+
+```ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "http://127.0.0.1:8000/api/:path*",
+      },
+      {
+        source: "/health",
+        destination: "http://127.0.0.1:8000/health",
+      },
+    ];
+  },
+};
+
+export default nextConfig;
+```
+
+说明：
+
+- 在默认 Node Server 部署（`pnpm build` + `pnpm start`）下，`rewrites` 在开发与生产均可生效；若改为纯静态导出等形态，需另行确认是否仍适用。
+- 也可直接把 `NEXT_PUBLIC_API_URL` 设为后端绝对地址（如 `http://127.0.0.1:8000`）；此时一般不再依赖 `rewrites`，但浏览器请求需后端允许跨域。
+- 仅在服务端发起的请求可改用非 `NEXT_PUBLIC_` 的私有基址，不受浏览器 CORS 约束；不要把密钥放进 `NEXT_PUBLIC_` 变量。
 
 ## 本地验证
 
