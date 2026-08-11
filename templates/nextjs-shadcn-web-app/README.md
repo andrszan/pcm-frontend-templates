@@ -31,7 +31,7 @@ pnpm dev
 
 ### 本地联调后端（rewrites）
 
-模板默认**不**配置 `rewrites`。`NEXT_PUBLIC_API_URL` 留空只表示浏览器打到当前站点；若本机另有后端，还需在 [next.config.ts](next.config.ts) 按真实路径配置重写，否则请求仍由 Next.js 处理，不会转到后端。
+项目默认**不**配置 `rewrites`。`NEXT_PUBLIC_API_URL` 留空只表示浏览器打到当前站点；若本机另有后端，还需在 [next.config.ts](next.config.ts) 按真实路径配置重写，否则请求仍由 Next.js 处理，不会转到后端。
 
 推荐：保持 `NEXT_PUBLIC_API_URL` 留空，用 `rewrites` 把同源路径转到本机后端（避免浏览器 CORS）。路径与 `destination` 按实际后端填写，不要照搬未确认的约定：
 
