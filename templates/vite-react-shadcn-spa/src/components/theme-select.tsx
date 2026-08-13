@@ -1,32 +1,14 @@
 import { useTheme } from "next-themes"
 
-import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
-
-const themes = ["light", "dark", "system"] as const
-
-type Theme = (typeof themes)[number]
-
-function isTheme(value: string): value is Theme {
-  return themes.some((theme) => theme === value)
-}
-
+// ⚠️ 占位组件：仅保证主题切换功能可用，外观未设计。
+// 请替换为你自己的主题切换 UI，不要直接沿用这个占位。
+// ThemeProvider 已就绪（见 src/app/providers.tsx），用 useTheme() 的 setTheme 接入即可。
 export function ThemeSelect() {
   const { setTheme, theme } = useTheme()
 
   return (
-    <NativeSelect
-      aria-label="主题"
-      size="sm"
-      value={theme ?? "system"}
-      onChange={(event) => {
-        if (isTheme(event.currentTarget.value)) {
-          setTheme(event.currentTarget.value)
-        }
-      }}
-    >
-      <NativeSelectOption value="light">浅色</NativeSelectOption>
-      <NativeSelectOption value="dark">深色</NativeSelectOption>
-      <NativeSelectOption value="system">跟随系统</NativeSelectOption>
-    </NativeSelect>
+    <button type="button" aria-label="主题" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+      {theme === "dark" ? "深色" : "浅色"}
+    </button>
   )
 }
