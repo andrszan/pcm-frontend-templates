@@ -32,6 +32,10 @@ pnpm dev
 
 每个页面入口统一放在 `src/routes/<route>/page.tsx`。页面私有组件仅在需要拆分时创建，放在同路由的 `_components/`；不要预建空目录。确认跨路由复用后，再提升到共享组件。
 
+## 通用页面
+
+[src/routes/not-found/page.tsx](src/routes/not-found/page.tsx) 与 [src/routes/error/page.tsx](src/routes/error/page.tsx) 只提供 404 和错误边界的机制接线，视觉尚未设计。派生项目必须结合自身品牌与交互自行设计后才算完成，不得直接上线占位页；加载页面应在出现真实异步路由或数据加载场景时按需设计。
+
 ## 环境变量
 
 `VITE_API_URL` 配置浏览器请求的后端基础地址；留空时 Axios 使用同源相对 URL。

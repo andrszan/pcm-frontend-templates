@@ -23,6 +23,10 @@ pnpm dev
 
 打开 <http://localhost:3000>，从 [src/app/page.tsx](src/app/page.tsx) 开始构建应用。
 
+## 通用页面
+
+[src/app/not-found.tsx](src/app/not-found.tsx)、[src/app/error.tsx](src/app/error.tsx) 与 [src/app/global-error.tsx](src/app/global-error.tsx) 只提供 404 和错误边界的机制接线，视觉尚未设计。派生项目必须结合自身品牌与交互自行设计后才算完成，不得直接上线占位页；加载页面应在出现真实异步路由或数据加载场景时按需设计。
+
 ## 环境变量
 
 `NEXT_PUBLIC_API_URL` 配置浏览器请求的后端基础地址；留空时 Axios 使用同源相对 URL。
