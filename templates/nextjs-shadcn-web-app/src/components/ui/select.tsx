@@ -5,7 +5,24 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
-const Select = SelectPrimitive.Root;
+type SelectOption<Value extends string | null = string | null> = Readonly<{
+  value: Value;
+  label: React.ReactNode;
+}>;
+
+type SelectProps<Value extends string, Multiple extends boolean | undefined = false> = Omit<
+  SelectPrimitive.Root.Props<Value, Multiple>,
+  "items"
+> & {
+  items: readonly SelectOption<true extends Multiple ? Value : Value | null>[];
+};
+
+function Select<Value extends string, Multiple extends boolean | undefined = false>({
+  items,
+  ...props
+}: SelectProps<Value, Multiple>) {
+  return <SelectPrimitive.Root<Value, Multiple> items={items} {...props} />;
+}
 
 function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
@@ -186,6 +203,8 @@ function SelectScrollDownButton({
     </SelectPrimitive.ScrollDownArrow>
   );
 }
+
+export type { SelectOption };
 
 export {
   Select,
