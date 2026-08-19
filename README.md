@@ -17,4 +17,4 @@
 templates/<project-id>/
 ```
 
-上层管理仓库的 `templates.yaml` 负责登记可选的项目起点。
+上层管理仓库的 `catalog.json` 负责登记可选的项目起点。
