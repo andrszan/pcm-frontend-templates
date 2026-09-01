@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+import "./globals.css";
+
 // ⚠️ 占位页面：根错误边界机制已接好，视觉未设计。
 // 派生项目必须自行设计后才算完成，不得直接上线此占位。
 export default function GlobalError({

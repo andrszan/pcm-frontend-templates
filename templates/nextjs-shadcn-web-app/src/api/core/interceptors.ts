@@ -9,10 +9,13 @@ type RequestFulfilled = (
 type ResponseFulfilled = (response: AxiosResponse) => AxiosResponse | Promise<AxiosResponse>;
 
 export class RequestInterceptor implements ApiInterceptor {
-  constructor(
-    private readonly onFulfilled?: RequestFulfilled,
-    private readonly onRejected?: InterceptorRejected,
-  ) {}
+  private readonly onFulfilled?: RequestFulfilled;
+  private readonly onRejected?: InterceptorRejected;
+
+  constructor(onFulfilled?: RequestFulfilled, onRejected?: InterceptorRejected) {
+    this.onFulfilled = onFulfilled;
+    this.onRejected = onRejected;
+  }
 
   register(instance: AxiosInstance): EjectInterceptor {
     const id = instance.interceptors.request.use(this.onFulfilled, this.onRejected);
@@ -22,10 +25,13 @@ export class RequestInterceptor implements ApiInterceptor {
 }
 
 export class ResponseInterceptor implements ApiInterceptor {
-  constructor(
-    private readonly onFulfilled?: ResponseFulfilled,
-    private readonly onRejected?: InterceptorRejected,
-  ) {}
+  private readonly onFulfilled?: ResponseFulfilled;
+  private readonly onRejected?: InterceptorRejected;
+
+  constructor(onFulfilled?: ResponseFulfilled, onRejected?: InterceptorRejected) {
+    this.onFulfilled = onFulfilled;
+    this.onRejected = onRejected;
+  }
 
   register(instance: AxiosInstance): EjectInterceptor {
     const id = instance.interceptors.response.use(this.onFulfilled, this.onRejected);
