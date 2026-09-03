@@ -31,8 +31,12 @@ coverage
 /test-results/
 /playwright-report/
 /blob-report/
-/playwright/.cache/
-/playwright/.auth/
+.playwright/
+
+# playwright-cli
+.playwright-cli/
+.playwright-mcp/
+.test-screenshots/
 
 # Claude worktrees
 .claude/worktrees/
