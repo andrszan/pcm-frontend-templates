@@ -13,7 +13,7 @@
 - 修改前阅读直接涉及的源码、调用方、相邻实现、测试和配置；不要仅凭目录名或已安装依赖推断能力已经接入。
 - 初始化、环境、脚本和部署以 `README.md` 与 `package.json` 为准；格式和静态检查以实际配置为准。
 - 进入包含子级 `AGENTS.md` 的目录时先阅读并遵循子级规则；修改 `src/api/` 时还必须阅读该目录的 `README.md`。
-- 涉及 shadcn/ui 组件、样式、组合、注册表、预设或 `components.json` 时，先检查现有源码并使用可用的 shadcn skill；不要未经审查批量覆盖生成源码。
+- 涉及 shadcn/ui 组件、样式、组合、注册表、预设或 `components.json` 时，先检查现有源码 `src/components/ui` 并使用可用的 shadcn skill。
 
 ## 架构边界
 

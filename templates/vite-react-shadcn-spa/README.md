@@ -110,5 +110,4 @@ pnpm dlx shadcn@latest add <component>
 
 ## 文档
 
-- [当前使用指南](docs/项目使用前置环境准备.md)：环境、安装、组件更新与验证。
 - [API 层设计](src/api/README.md)：HTTP 基础设施与业务模块扩展边界。
