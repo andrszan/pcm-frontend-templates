@@ -111,3 +111,4 @@ pnpm dlx shadcn@latest add <component>
 ## 文档
 
 - [API 层设计](src/api/README.md)：HTTP 基础设施与业务模块扩展边界。
+- [自定义组件](src/components/custom/README.md)：日期范围、删除确认和字段帮助。

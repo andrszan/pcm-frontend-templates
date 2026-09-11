@@ -33,7 +33,7 @@
 - 优先使用现有 `src/components/ui/` 组件和语义化主题令牌；页面和组件中不得直接写任意十六进制、RGB、HSL、OKLCH 或其他颜色值。主题令牌缺失，或需求明确要求非主题色时，使用 Tailwind 默认调色板中的命名颜色。
 - 使用 Base UI `Select` 时，必须以同一份 `readonly SelectOption<Value>[]` 作为选项的唯一数据源：将其传给 Root 的 `items`，并据此映射 `SelectItem`；不得只渲染 `SelectItem` 而省略 `items`，否则 `SelectValue` 会回退显示内部 `value`。所有 `SelectItem` 和 `SelectLabel` 必须位于 `SelectGroup` 内，即使只有一组选项也不得直接放在 `SelectContent` 下；需要多组时，由各组分别拥有对应的 `SelectGroup` 和可选的 `SelectLabel`。`value` 仅承载稳定的状态、URL、表单和 API 编码，用户可见内容统一来自 `label`；非空 option 的 React `key` 使用 `value`，`null` option 使用与其业务语义对应的稳定 key。筛选中的“全部”应建模为带明确 `label` 的 `null` option，表单中的“未选择”则使用 `SelectValue` 的 `placeholder`；远程、历史或失效的当前项必须保留可读名称及必要状态说明，不得默认暴露内部 code。多选 option 不使用 `null` value。
 - 选择器默认使用自定义 `Select`（`src/components/ui/select.tsx`），不要默认使用 `NativeSelect`（原生 `<select>` 封装）。`NativeSelect` 的价值在于移动端原生系统提供的选择器交互（滚轮、原生弹层），只在应用真正运行于移动端设备原生环境（混合应用、WebView 或强依赖原生选择器的 PWA）时才成立。纯浏览器 Web 应用，各宽度响应式布局均在浏览器渲染，不会进入移动端原生选择器；
-- 一次性定制放在调用处或组合组件中；确有跨页面组件需求时才修改共享 UI 源码，并验证受影响行为。
+- 表单补充解释优先使用 `custom/LabelWithHelp`，不要默认平铺全部帮助文字；常驻要求用 `FieldDescription`，校验错误用 `FieldError`。其他组合组件见 [custom/README.md](src/components/custom/README.md)。
 - UI 变更覆盖响应式布局、亮暗主题和基本可访问性：语义结构、可访问名称、键盘操作、可见焦点、对比度和必要的 reduced motion。
 
 ### UI 任务的结果约束与可选辅助
