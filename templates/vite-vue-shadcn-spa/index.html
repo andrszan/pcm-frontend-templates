@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Vite、Vue 与 shadcn-vue 单页应用项目起点" />
+    <script>
+      ;(() => {
+        let preference = 'system'
+        try {
+          const saved = window.localStorage.getItem('theme')
+          if (saved === 'light' || saved === 'dark' || saved === 'system') preference = saved
+        } catch {
+          // Restricted storage falls back to the system preference.
+        }
+        const dark =
+          preference === 'dark' ||
+          (preference === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.classList.toggle('dark', dark)
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+      })()
+    </script>
+    <title>Vite + Vue + shadcn-vue</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
