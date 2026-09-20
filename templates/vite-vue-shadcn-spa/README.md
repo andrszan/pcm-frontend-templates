@@ -88,6 +88,8 @@ AppErrorBoundary 处理 Vue 能通过 `onErrorCaptured` 交付的后代组件错
 
 ## shadcn-vue
 
+本项目的 `components.json` 属于 shadcn-vue；React 项目的 `shadcn` CLI、TSX 组件和 Base UI/Radix React API 与本项目不兼容，不能用于检查、添加或更新组件。
+
 项目使用 [components.json](components.json) 中的 Vite、Reka UI、Lucide 和 Tailwind CSS 4 配置。当前 registry 的 66 个基础 UI 组件已经全部保存在 [src/components/ui/](src/components/ui/)；开发时先检查并复用本地实现，不需要再次下载。
 
 以下文档名称不是独立 registry 组件：

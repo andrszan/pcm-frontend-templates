@@ -20,6 +20,7 @@
 - 需求、现有业务契约和源码事实优先；Skill 按需使用，建议不得覆盖实际证据、改变契约或扩大范围。
 - 优先复用现有实现、平台能力和已安装依赖；不新增未经确认的业务、模型、流程、协议、示例数据、抽象、依赖或空目录。
 - 已安装依赖或组件源码不代表能力已经接入；只为已确认的应用行为增加全局能力。
+- 本项目是 Vue 3 + shadcn-vue + Reka UI 工程，不是 React shadcn/ui 工程；根 `components.json` 只供 shadcn-vue 使用。不得运行 React `shadcn` CLI、引入 React JSX/Hook/Form API、Base UI/Radix React 组件或 `lucide-react`。只有明确需要本地不存在的 registry 组件或升级源码时，才按 README 使用固定版本的 `pnpm dlx shadcn-vue@2.8.2`，并先检查本地组件和预览变更。
 - `VITE_` 变量按公开客户端信息处理，不得保存 Token、密码、API Key 等敏感信息。
 - 优先在共享根因处修复问题，不在多个消费方重复打补丁。
 
